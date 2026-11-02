@@ -51,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <meta name="theme-color" content="#111111">
-    <link rel="stylesheet" href="/css/app.css?v=16">
+    <link rel="stylesheet" href="/css/app.css?v=17">
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body>
@@ -99,6 +99,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <button class="btn" type="submit">Anmelden</button>
     </form>
     </div>
+    <a class="by-badge" href="https://cineluuk.ch/home/img/Certificado_Lukas_Schlegel.pdf" target="_blank" rel="noopener">
+        <span class="by-badge-text">
+            <span class="by-badge-kicker">Certified by</span>
+            <span class="by-badge-name">Barça Innovation Hub</span>
+        </span>
+        <img src="/assets/barca-logo.webp" alt="" width="36" height="36">
+    </a>
 </div>
 <script>
 (function () {
