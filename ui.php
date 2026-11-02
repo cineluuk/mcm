@@ -17,24 +17,12 @@ function current_lang(): string
 
 function topbar(bool $showLogout): void
 {
-    $lang = current_lang();
-    $path = parse_url((string) ($_SERVER['REQUEST_URI'] ?? '/'), PHP_URL_PATH);
-    $path = is_string($path) && $path !== '' ? $path : '/';
-    $query = $_GET;
+    unset($showLogout);
 
     echo '<header class="topbar">';
-    echo '<nav class="langs" aria-label="Sprache">';
-    foreach (['de' => 'DE', 'it' => 'IT', 'fr' => 'FR', 'en' => 'EN'] as $code => $label) {
-        $query['lang'] = $code;
-        $href = $path . '?' . http_build_query($query);
-        $class = $code === $lang ? ' class="is-active"' : '';
-        $current = $code === $lang ? ' aria-current="true"' : '';
-        echo '<a' . $class . $current . ' href="' . h($href) . '">' . $label . '</a>';
-    }
-    echo '</nav>';
-    if ($showLogout) {
-        echo '<a class="logout-link" href="/logout.php">Logout</a>';
-    }
+    echo '<button class="back-link" type="button" aria-label="Zurück" onclick="history.back()">';
+    echo '<svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path d="M15 5L8 12l7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg>';
+    echo '</button>';
     echo '</header>';
 }
 
@@ -56,7 +44,7 @@ function page_start(string $title): void
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/app.css?v=19">
+    <link rel="stylesheet" href="/css/app.css?v=20">
 </head>
 <body>
 <div class="app">
