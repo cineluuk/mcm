@@ -1,0 +1,586 @@
+:root {
+    --bg: #111111;
+    --card: #1c1c1c;
+    --ink: #f7f7f7;
+    --muted: #b9b3a6;
+    --yellow: #f5c400;
+    --beige: #f3ead2;
+    --danger: #e24b3b;
+    --line: #2a2a2a;
+    --shadow: none;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    min-height: 100%;
+    background: var(--bg);
+    color: var(--ink);
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.app {
+    max-width: 480px;
+    min-height: 100vh;
+    min-height: 100dvh;
+    margin: 0 auto;
+    background: var(--bg);
+    padding: calc(10px + env(safe-area-inset-top)) 16px calc(20px + env(safe-area-inset-bottom));
+}
+
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-shrink: 0;
+    min-height: 44px;
+    margin-bottom: 8px;
+}
+
+.langs {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    min-width: 0;
+}
+
+.langs a,
+.logout-link {
+    color: var(--muted);
+    text-decoration: none;
+    font-family: "Bebas Neue", Arial, sans-serif;
+    font-size: 18px;
+    letter-spacing: 0.06em;
+    line-height: 1;
+    padding: 10px 7px;
+}
+
+.langs a.is-active {
+    color: var(--yellow);
+}
+
+.logout-link {
+    flex-shrink: 0;
+    padding-right: 2px;
+}
+
+.app:has(.home) {
+    height: 100dvh;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+h1,
+h2,
+.tab,
+.btn,
+.brand {
+    font-family: "Bebas Neue", Arial, sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+}
+
+h1 {
+    margin: 0;
+    font-size: 32pt;
+    line-height: 0.95;
+    color: var(--yellow);
+}
+
+h2 {
+    margin: 28px 0 12px;
+    font-size: 20pt;
+    color: var(--beige);
+}
+
+.lead,
+.muted,
+label,
+.lead a {
+    color: var(--beige);
+    font-size: 15px;
+    line-height: 1.35;
+}
+
+.brand-row,
+.brand-lockup {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 18px;
+}
+
+.brand-lockup {
+    justify-content: center;
+    margin-bottom: 8px;
+}
+
+.brand-rule {
+    width: 1px;
+    height: 64px;
+    background: var(--beige);
+}
+
+.logo {
+    width: 84px;
+    height: 84px;
+    display: block;
+    object-fit: contain;
+}
+
+.club-mark {
+    width: 84px;
+    height: 84px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    text-decoration: none;
+    color: var(--yellow);
+    font-family: "Bebas Neue", Arial, sans-serif;
+    font-size: 28px;
+    letter-spacing: 0.04em;
+}
+
+.club-mark img {
+    width: 84px;
+    height: 84px;
+    object-fit: contain;
+    display: block;
+}
+
+.home {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-height: 0;
+}
+
+.home h1 {
+    margin: 2px 0 12px;
+    text-align: center;
+}
+
+.calendar {
+    flex: 1;
+    min-height: 0;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.day {
+    border-top: 1px solid var(--line);
+}
+
+.day-label {
+    color: var(--muted);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    line-height: 1.2;
+    padding: 8px 2px;
+    text-transform: uppercase;
+}
+
+.day.has-match {
+    border-top: 0;
+    padding-top: 16px;
+}
+
+.day.has-match .day-label {
+    color: var(--beige);
+    font-size: 12px;
+    padding: 0 2px 8px;
+}
+
+.day.is-today .day-label {
+    color: var(--yellow);
+}
+
+.home .form[hidden] {
+    display: none !important;
+}
+
+.home .form {
+    flex-shrink: 0;
+    max-height: 46vh;
+    overflow: auto;
+    margin-top: 8px;
+}
+
+.add-match {
+    width: 64px;
+    height: 64px;
+    margin: 12px auto 0;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: var(--yellow);
+    color: #141414;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    cursor: pointer;
+    align-self: center;
+}
+
+.add-match svg {
+    display: block;
+    transition: transform 0.2s ease;
+}
+
+.add-match.is-open svg {
+    transform: rotate(45deg);
+}
+
+.card,
+.match,
+.field {
+    background: var(--card);
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow);
+}
+
+.stack {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.match {
+    display: block;
+    position: relative;
+    padding: 18px 16px;
+    margin: 0 0 4px;
+    text-decoration: none;
+    color: inherit;
+    border-radius: 18px;
+}
+
+.match.is-locked {
+    opacity: 0.48;
+}
+
+.match.is-locked strong {
+    padding-right: 28px;
+}
+
+.match .lock {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    color: var(--beige);
+    line-height: 0;
+}
+
+.match strong {
+    display: block;
+    font-family: "Bebas Neue", Arial, sans-serif;
+    font-size: 26px;
+    font-weight: 400;
+    letter-spacing: 0.03em;
+    line-height: 0.95;
+    margin-bottom: 6px;
+}
+
+.match .meta {
+    display: block;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.35;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+label {
+    margin-top: 8px;
+}
+
+input,
+button {
+    font: inherit;
+}
+
+input,
+select {
+    color-scheme: dark;
+    width: 100%;
+    border: 1px solid var(--line);
+    background: var(--card);
+    color: var(--ink);
+    font-size: 16px;
+    padding: 14px 12px;
+    border-radius: 12px;
+}
+
+.btn {
+    display: block;
+    width: 100%;
+    margin-top: 12px;
+    border: 0;
+    background: var(--yellow);
+    color: #141414;
+    font-size: 20pt;
+    padding: 14px 18px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 16px;
+}
+
+.btn-danger {
+    background: transparent;
+    color: var(--danger);
+    border: 2px solid var(--danger);
+}
+
+.form-error {
+    color: var(--danger);
+    margin: 8px 0 0;
+}
+
+.empty {
+    color: var(--muted);
+    text-align: center;
+    margin: 32px 0;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.item {
+    background: var(--card);
+    border: 1px solid var(--line);
+    overflow: hidden;
+}
+
+.item img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    display: block;
+}
+
+.login-wrap {
+    max-width: 480px;
+    min-height: 100vh;
+    min-height: 100dvh;
+    margin: 0 auto;
+    background: var(--bg);
+    display: flex;
+    flex-direction: column;
+    padding: calc(10px + env(safe-area-inset-top)) 20px calc(20px + env(safe-area-inset-bottom));
+}
+
+.login-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.login-brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 140px;
+    margin-bottom: 12px;
+}
+
+.login-brand .logo-hero {
+    width: 180px;
+    height: auto;
+    margin: 0;
+    transition: width 0.5s ease;
+}
+
+.login-brand .brand-rule {
+    width: 0;
+    height: 72px;
+    margin: 0;
+    opacity: 0;
+    transform: scaleY(0);
+    transform-origin: center center;
+    transition: width 0.45s ease, margin 0.45s ease, opacity 0.35s ease, transform 0.45s ease;
+}
+
+.login-brand .club-pick {
+    width: 0;
+    height: 96px;
+    object-fit: contain;
+    opacity: 0;
+    transition: width 0.5s ease, opacity 0.4s ease;
+}
+
+.login-brand.is-paired .logo-hero {
+    width: 96px;
+}
+
+.login-brand.is-paired .brand-rule {
+    width: 1px;
+    margin: 0 16px;
+    opacity: 1;
+    transform: scaleY(1);
+}
+
+.login-brand.is-paired .club-pick {
+    width: 96px;
+    opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .login-brand .logo-hero,
+    .login-brand .brand-rule,
+    .login-brand .club-pick {
+        transition: none;
+    }
+}
+
+.club-picker {
+    position: relative;
+}
+
+.club-trigger {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid var(--line);
+    background: var(--card);
+    color: var(--ink);
+    border-radius: 12px;
+    padding: 12px;
+    font: inherit;
+    font-size: 16px;
+    text-align: left;
+    cursor: pointer;
+}
+
+.club-trigger span {
+    flex: 1;
+}
+
+.club-trigger svg {
+    flex-shrink: 0;
+    color: var(--beige);
+}
+
+.club-mini,
+.club-option img {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+    flex-shrink: 0;
+    display: block;
+}
+
+img.club-mini[hidden] {
+    display: none;
+}
+
+.club-menu {
+    position: absolute;
+    z-index: 5;
+    left: 0;
+    right: 0;
+    top: calc(100% + 6px);
+    max-height: 280px;
+    overflow: auto;
+    background: #161616;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 6px;
+}
+
+.club-league {
+    color: var(--beige);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    padding: 10px 8px 4px;
+}
+
+.club-option {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 0;
+    border-radius: 8px;
+    background: transparent;
+    color: var(--ink);
+    font: inherit;
+    font-size: 16px;
+    text-align: left;
+    padding: 8px;
+    cursor: pointer;
+}
+
+.club-option.is-selected,
+.club-option:hover {
+    background: #2a2a2a;
+}
+
+.turnstile {
+    display: flex;
+    justify-content: center;
+    margin-top: 14px;
+}
+
+.login-wrap .subtitle {
+    margin: 0 0 8px;
+    text-align: center;
+    color: var(--beige);
+}
+
+.actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 18px;
+}
+
+.actions .btn {
+    margin-top: 0;
+    font-size: 18pt;
+    padding: 16px 8px;
+}
+
+.preview {
+    display: block;
+    width: 100%;
+    height: auto;
+    background: #000;
+    touch-action: none;
+    cursor: grab;
+}
+
+.score-row {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 8px;
+    align-items: center;
+}
+
+.score-row span {
+    text-align: center;
+    color: var(--yellow);
+    font-family: "Bebas Neue", Arial, sans-serif;
+    font-size: 28pt;
+}

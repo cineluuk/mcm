@@ -1,4 +1,18 @@
 Options -Indexes
-Require all denied
-Deny from all
+DirectoryIndex index.php
 
+<IfModule mod_authz_core.c>
+    <FilesMatch "^\.">
+        Require all denied
+    </FilesMatch>
+</IfModule>
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^vps/ - [F,L]
+    RewriteRule ^sql/ - [F,L]
+    RewriteRule ^data/ - [F,L]
+    RewriteRule ^config(\.local)?\.php$ - [F,L]
+    RewriteRule ^local-router\.php$ - [F,L]
+    RewriteRule ^(auth|db|ui|clubs)\.php$ - [F,L]
+</IfModule>

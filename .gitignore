@@ -1,0 +1,9 @@
+.DS_Store
+vps/.env
+config.php
+config.local.php
+data/*.sqlite
+uploads/incoming/*
+!uploads/incoming/.htaccess
+uploads/clubs/*
+!uploads/clubs/.htaccess
