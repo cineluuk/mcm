@@ -357,9 +357,20 @@ select {
 }
 
 .btn-danger {
-    background: transparent;
-    color: var(--danger);
-    border: 2px solid var(--danger);
+    background: var(--danger);
+    color: #fff;
+}
+
+.help-line {
+    margin: 22px 0 0;
+    color: var(--beige);
+    font-size: 15px;
+    line-height: 1.4;
+    text-align: center;
+}
+
+.help-line a {
+    color: var(--yellow);
 }
 
 .form-error {

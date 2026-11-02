@@ -8,12 +8,26 @@ require_once __DIR__ . '/clubs.php';
 $user = require_login();
 $error = '';
 $clubError = '';
+$accountError = '';
 $saved = isset($_GET['saved']);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $action = (string) ($_POST['action'] ?? '');
 
-    if ($action === 'password') {
+    if ($action === 'delete') {
+        if (!csrf_ok()) {
+            $accountError = 'Bitte das Formular erneut senden.';
+        } else {
+            $id = (int) $user['id'];
+            $clear = db()->prepare('UPDATE mcm_matches SET created_by = NULL WHERE created_by = :id');
+            $clear->execute(['id' => $id]);
+            $drop = db()->prepare('DELETE FROM mcm_users WHERE id = :id');
+            $drop->execute(['id' => $id]);
+            logout();
+            header('Location: /login.php', true, 302);
+            exit;
+        }
+    } elseif ($action === 'password') {
         $password = (string) ($_POST['password'] ?? '');
         $again = (string) ($_POST['password_again'] ?? '');
         if (!csrf_ok()) {
@@ -127,6 +141,15 @@ page_start('Profil');
     </form>
 <?php endif; ?>
 
-<a class="btn" href="/logout.php">Logout</a>
+<?php if ($accountError !== ''): ?>
+    <p class="form-error"><?= h($accountError) ?></p>
+<?php endif; ?>
+<a class="btn btn-danger" href="/logout.php">Logout</a>
+<form method="post" action="/profile.php" onsubmit="return confirm('Account wirklich löschen?');">
+    <input type="hidden" name="csrf" value="<?= h(csrf_token()) ?>">
+    <input type="hidden" name="action" value="delete">
+    <button class="btn btn-danger" type="submit">Account löschen</button>
+</form>
+<p class="help-line">Bei Problemen oder Fragen an <a href="mailto:contact@cineluuk.ch">contact@cineluuk.ch</a> schreiben.</p>
 <?php
 page_end('profile');
