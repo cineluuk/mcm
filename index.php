@@ -102,9 +102,14 @@ page_start('Spielkalender');
 
     <button class="btn" type="submit">Spiel speichern</button>
 </form>
+<div class="home-actions">
 <button class="add-match<?= $error !== '' ? ' is-open' : '' ?>" id="show-form" type="button" aria-label="Spiel eintragen" aria-expanded="<?= $error !== '' ? 'true' : 'false' ?>">
     <svg viewBox="0 0 24 24" width="32" height="32" aria-hidden="true"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"></path></svg>
 </button>
+<a class="profile-link" href="/profile.php" aria-label="Profil">
+    <svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true"><circle cx="12" cy="8" r="3.2" fill="none" stroke="currentColor" stroke-width="2"></circle><path d="M5.5 19.2c1.4-3 3.7-4.4 6.5-4.4s5.1 1.4 6.5 4.4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg>
+</a>
+</div>
 </div>
 <script>
 window.MCM_CALENDAR = <?= json_encode($calendar, JSON_UNESCAPED_UNICODE | JSON_HEX_TAG | JSON_HEX_AMP) ?>;

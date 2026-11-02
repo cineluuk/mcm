@@ -56,12 +56,12 @@ function page_start(string $title): void
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/app.css?v=17">
+    <link rel="stylesheet" href="/css/app.css?v=18">
 </head>
 <body>
 <div class="app">
 HTML;
-    topbar(current_user() !== null);
+    topbar(false);
 }
 
 function page_end(string $active): void
