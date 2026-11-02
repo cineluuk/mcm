@@ -26,7 +26,7 @@ function topbar(bool $showLogout): void
     echo '</header>';
 }
 
-function page_start(string $title): void
+function page_start(string $title, bool $back = true): void
 {
     $lang = current_lang();
     $htmlLang = ['de' => 'de-CH', 'it' => 'it-CH', 'fr' => 'fr-CH', 'en' => 'en'][$lang];
@@ -44,12 +44,14 @@ function page_start(string $title): void
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/app.css?v=21">
+    <link rel="stylesheet" href="/css/app.css?v=22">
 </head>
 <body>
 <div class="app">
 HTML;
-    topbar(false);
+    if ($back) {
+        topbar(false);
+    }
 }
 
 function page_end(string $active): void

@@ -69,7 +69,7 @@ foreach ($matches as $match) {
 }
 $clubLogo = club_logo_url((string) $user['club']) ?? swiss_team_logo((string) $user['club']);
 
-page_start('Spielkalender');
+page_start('Spielkalender', false);
 ?>
 <div class="home">
     <div class="brand-lockup">

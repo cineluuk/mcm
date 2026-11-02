@@ -565,59 +565,25 @@ img.club-mini[hidden] {
     border-radius: 12px;
 }
 
-.by-badge {
-    align-self: center;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-top: 16px;
-    padding: 8px 14px 8px 16px;
-    border-radius: 16px;
-    background: rgba(245, 196, 0, 0.92);
-    color: #141414;
-    text-decoration: none;
-    max-width: 100%;
-}
-
-.by-badge-text {
+.by-cineluuk {
+    margin: 28px 0 4px;
     display: flex;
     flex-direction: column;
-    min-width: 0;
+    align-items: center;
+    gap: 8px;
 }
 
-.by-badge-kicker {
-    font-size: 11px;
-    letter-spacing: 0.08em;
-    line-height: 1.1;
-    text-transform: uppercase;
-}
-
-.by-badge-name {
-    font-size: 14px;
-    font-weight: 700;
-    line-height: 1.15;
-}
-
-.by-badge img {
-    width: 36px;
-    height: 36px;
-    object-fit: contain;
-    flex-shrink: 0;
-}
-
-.profile-logos {
-    margin-bottom: 22px;
-}
-
-.lang-select {
-    margin-bottom: 8px;
-}
-
-.text-link {
-    display: inline-block;
-    margin-top: 22px;
+.by-cineluuk span {
     color: var(--beige);
     font-size: 15px;
+    letter-spacing: 0.22em;
+    line-height: 1;
+}
+
+.by-cineluuk img {
+    width: 132px;
+    height: auto;
+    display: block;
 }
 
 .login-wrap .subtitle {
