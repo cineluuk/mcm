@@ -44,7 +44,7 @@ function page_start(string $title): void
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/app.css?v=20">
+    <link rel="stylesheet" href="/css/app.css?v=21">
 </head>
 <body>
 <div class="app">

@@ -548,9 +548,21 @@ img.club-mini[hidden] {
 }
 
 .turnstile {
-    display: flex;
-    justify-content: center;
+    width: 100%;
     margin-top: 14px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--card);
+    line-height: 0;
+}
+
+.turnstile .cf-turnstile,
+.turnstile iframe {
+    display: block;
+    width: 100% !important;
+    max-width: 100%;
+    border-radius: 12px;
 }
 
 .by-badge {

@@ -51,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <meta name="theme-color" content="#111111">
-    <link rel="stylesheet" href="/css/app.css?v=20">
+    <link rel="stylesheet" href="/css/app.css?v=21">
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body>
@@ -93,7 +93,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <input id="password" name="password" type="password" autocomplete="current-password" required>
 
         <div class="turnstile">
-            <div class="cf-turnstile" data-sitekey="<?= h($turnstileSite) ?>" data-theme="dark"></div>
+            <div class="cf-turnstile" data-sitekey="<?= h($turnstileSite) ?>" data-theme="dark" data-size="flexible"></div>
         </div>
 
         <button class="btn" type="submit">Anmelden</button>
