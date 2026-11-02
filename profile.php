@@ -127,6 +127,6 @@ page_start('Profil');
     </form>
 <?php endif; ?>
 
-<p><a class="text-link" href="/logout.php">Logout</a></p>
+<a class="btn" href="/logout.php">Logout</a>
 <?php
 page_end('profile');
